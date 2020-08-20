@@ -1,0 +1,26 @@
+{
+  "name": "snowflake",
+  "version": "1.0.0",
+  "description": "Picassco for Snowflake",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/picass-co/issues",
+    "email": "support@picass.co"
+  },
+  "author": {
+    "name": "Ali Furkan",
+    "email": "alifurkan@picass.co"
+  },
+  "license": "MPL-2.0 License",
+  "devDependencies": {
+    "@types/node": "^14.6.0"
+  },
+  "dependencies": {
+    "typescript": "^4.0.2"
+  }
+}
