@@ -1,2 +1,2 @@
-export * from "./addon"
-export * from "./snowflake"
+export * from "./addon";
+export * from "./snowflake";

@@ -22,9 +22,9 @@ export enum Type {
 export type Flag = UserFlag | AvatarFlag | AppFlag;
 
 export interface ISnowflake {
-    id:number
-    timestamp: number,
-    type: string,
-    flags: string[],
-    count: number,
+    id: number;
+    timestamp: number;
+    type: string;
+    flags: string[];
+    count: number;
 }
