@@ -1,9 +1,15 @@
-import { SnowFlakeFactory } from "../src"
-import { Type, UserFlag } from "../src/interfaces/snowflake"
+import { SnowflakeService } from "."
+import { Type, UserFlag } from "./interfaces/snowflake"
 
-describe("Snowflake",()=>{
-    let snowflake = new SnowFlakeFactory([UserFlag.ACTIVE_USER],Type.USER)
-    describe("default snowflake generation",()=>{
+describe("Snowflake Factory Test",()=>{
+    let snowflake: SnowflakeService
+
+    beforeEach(()=>{
+        snowflake = new SnowflakeService()
+        snowflake.setType(Type.USER)
+        snowflake.setFlags([UserFlag.ACTIVE_USER])
+    })
+    describe("Snowflake generation (default)",()=>{
         let id
         let time
         it("generation",(done)=>{
@@ -21,7 +27,7 @@ describe("Snowflake",()=>{
             done()
         })
     })
-    describe("Snowflake generation with Flags",()=>{
+    describe("Snowflake generation (with Flags)",()=>{
         let id
         let time
         it("generation",(done)=>{
@@ -35,7 +41,7 @@ describe("Snowflake",()=>{
             expect(Math.floor(sid.timestamp/10000)).toEqual(Math.floor(time/10000))
             expect(sid.type).toEqual("USER")
             expect(sid.flags[0]).toEqual("SYSTEM")
-            expect(sid.count).toEqual(2)
+            expect(sid.count).toEqual(1)
             done()
         })
     })

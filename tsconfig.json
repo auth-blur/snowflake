@@ -1,8 +1,0 @@
-{
-    "compilerOptions": {
-        "module": "commonjs",
-        "outDir": "dist",
-        "rootDir": "./src",
-        "typeRoots": ["node_modules/@types"]
-    }
-}
