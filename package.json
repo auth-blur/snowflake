@@ -4,8 +4,10 @@
   "description": "Picassco for Snowflake",
   "main": "dist/index.js",
   "scripts": {
-    "build": "tsc",
-    "start": "node dist"
+    "prebuild": "tsc && node-gyp configure && node-gyp build",
+    "build": "rimraf dist && tsc && node-gyp rebuild",
+    "dev": "nodemon",
+    "test": "jest --runInBand --detectOpenHandles --config ./test/jest-test.json"
   },
   "keywords": [],
   "bugs": {
@@ -18,9 +20,18 @@
   },
   "license": "MPL-2.0 License",
   "devDependencies": {
-    "@types/node": "^14.6.0"
+    "@types/bindings": "^1.3.0",
+    "@types/node": "^14.6.1",
+    "jest": "^26.4.2",
+    "node-gyp": "^7.1.0",
+    "nodemon": "^2.0.4",
+    "prettier": "^2.1.1",
+    "rimraf": "^3.0.2",
+    "ts-jest": "^26.3.0",
+    "typescript": "^4.0.2"
   },
   "dependencies": {
-    "typescript": "^4.0.2"
+    "bindings": "^1.5.0",
+    "node-addon-api": "^3.0.0"
   }
 }

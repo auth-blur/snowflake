@@ -2,14 +2,7 @@
     "compilerOptions": {
         "module": "commonjs",
         "outDir": "dist",
-        "rootDir": "./",
+        "rootDir": "./src",
         "typeRoots": ["node_modules/@types"]
-    },
-    "exclude": [
-        "node_modules",
-        "package.json",
-        "package-lock.json",
-        "tsconfig.json",
-        ".gitignore"
-    ]
+    }
 }
