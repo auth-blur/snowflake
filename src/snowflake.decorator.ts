@@ -7,8 +7,11 @@ export function Snowflake(
     type: Type,
     flags: Flag[],
 ): (target: any, key: string | symbol, index?: number) => void {
-    if (!snowflakes.some(s => Object.is(s, { type, flags }))) {
+    if (!snowflakes.some(s => Object.is(s, { type, flags })))
         snowflakes.push({ type, flags });
-    }
-    return Inject(`Snowflake.${type}.${flags.reduce((a, b) => a | b)}`);
+    return Inject(
+        `Snowflake.${type.toString()}.${flags
+            .reduce((a, b) => a | b)
+            .toString()}`,
+    );
 }

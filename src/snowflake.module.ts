@@ -21,7 +21,9 @@ function createSnowflakeProviders(): Array<Provider<SnowflakeService>> {
         type: Type,
     ): Provider<SnowflakeService> {
         return {
-            provide: `Snowflake.${type}.${flags.reduce((a, b) => a | b)}`,
+            provide: `Snowflake.${type.toString()}.${flags
+                .reduce((a, b) => a | b)
+                .toString()}`,
             useFactory: (snowflakeService: SnowflakeService) =>
                 SnowflakeFactory(snowflakeService, flags, type),
             inject: [SnowflakeService],

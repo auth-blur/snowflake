@@ -1,7 +1,8 @@
 import { Injectable } from "@nestjs/common";
 import { IAddon, TID } from "./interfaces/addon";
 import { Flag, Type, ISnowflake } from "./interfaces/snowflake";
-import bindings from "bindings";
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const bindings = require("bindings");
 
 const Types = {
     USER: 1 << 0,
@@ -72,5 +73,21 @@ export class SnowflakeService {
             flags,
             count: sid.count,
         };
+    }
+    static isSnowflake(id: number): boolean {
+        const digits = Math.log2(id);
+        return digits < 64 && digits > 22;
+    }
+    static matchFlags(flag: Flag, id: number): boolean {
+        const type = Object.entries(Types).find(
+            ([, val]) => val == (id & 0x3e0000) >> 17,
+        )[0];
+        const BwIDFlag = Object.entries(Flags[type])
+            .filter(f => f[1] == (id & 0x1f000) >> 12)
+            .map((f: [string, number]) => f[1])
+            .reduce((acc, cur) => acc | cur);
+
+        if (flag === (flag & BwIDFlag)) return true;
+        return false;
     }
 }
