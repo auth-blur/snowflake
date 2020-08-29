@@ -38,7 +38,6 @@ export class SnowflakeService {
 
     setFlags(iflags: Flag[]): void {
         this.flag = iflags.reduce((acc, cur) => acc | cur);
-        if (this.flag && this.type && this.typeName) this.ready = true;
     }
 
     setType(itype: Type): void {
@@ -47,7 +46,7 @@ export class SnowflakeService {
         );
         this.typeName = name;
         this.type = type;
-        if (this.flag && this.type && this.typeName) this.ready = true;
+        this.ready = true;
     }
 
     next(iflags?: Array<Flag>): TID {
