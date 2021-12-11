@@ -1,12 +1,6 @@
-<div align="center">
+# ❄ Blur Snowflake
 
-[![Picassco-Banner](https://raw.githubusercontent.com/picass-co/Website/dev/public/assets/banners/default.png)](https://picass.co)
-
-</div>
-
-# ❄ Picass.co Snowflake
-
-Picass.co Snowflake's public repository
+Blur Snowflake's public repository
 
 ## Information
 
